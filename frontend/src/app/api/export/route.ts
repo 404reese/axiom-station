@@ -39,8 +39,8 @@ function transformToFactoryConfig(workflowState: any): any {
   return {
     objective: workflowState.main_task || "Complete the user's task",
     relations_type: relationType,
-    model_name: "gpt-4o",
-    api_key: process.env.OPENAI_API_KEY || "",
+    model_name: "gemini/gemini-2.5-pro",
+    api_key: process.env.GOOGLE_API_KEY || "",
     agents: factoryAgents,
   };
 }
