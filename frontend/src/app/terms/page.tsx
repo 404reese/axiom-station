@@ -33,7 +33,7 @@ export default function TermsPage() {
                       1. Acceptance of Terms
                     </h2>
                     <p className="text-[#37322F] text-base leading-6 font-sans mb-4">
-                      By accessing and using Reefs (&quot;the Service&quot;),
+                      By accessing and using Axiom Station (&quot;the Service&quot;),
                       you accept and agree to be bound by the terms and
                       provision of this agreement. If you do not agree to abide
                       by the above, please do not use this service.

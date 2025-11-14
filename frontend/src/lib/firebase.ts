@@ -13,6 +13,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+// Use default getFirestore for now - simpler and works with localhost
 export const firestore = getFirestore(app);
+
 export const googleProvider = new GoogleAuthProvider();
 export default app;

@@ -234,7 +234,7 @@ export default function ProjectsPage() {
                       No projects yet
                     </h2>
                     <p className="text-foreground/70 text-base font-medium leading-6 font-sans mb-8">
-                      Create your first project to get started with Reef.
+                      Create your first project to get started with Axiom Station.
                       Projects help you organize your work and collaborate with
                       others.
                     </p>

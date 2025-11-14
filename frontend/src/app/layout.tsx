@@ -36,18 +36,18 @@ const ppMondwest = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Reefs - Lovable for AI Agents",
+  title: "Axiom Station - Make Agents Visually",
   description:
     "Build, deploy, and manage AI agents effortlessly. The natural language platform for creating intelligent agents that users love.",
   appleWebApp: {
-    title: "Reef",
+    title: "Axiom Station",
   },
   metadataBase: new URL("https://thereef.dev"),
   openGraph: {
     title: "thereef.dev",
     description: "Build, deploy, and manage AI agents effortlessly.",
     url: "https://thereef.dev",
-    siteName: "Reef",
+    siteName: "Axiom Station",
     images: [
       {
         url: "/og-image.png",

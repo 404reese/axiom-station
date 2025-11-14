@@ -74,7 +74,7 @@ export default function AuthPage() {
         <div className="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] md:max-w-[calc(100%-64px)] lg:max-w-[700px] lg:w-[700px] h-10 sm:h-11 md:h-12 py-1.5 sm:py-2 px-3 sm:px-4 md:px-4 pr-2 sm:pr-3 bg-[#F7F5F3] backdrop-blur-sm shadow-[0px_0px_0px_2px_white] overflow-hidden rounded-[50px] flex justify-between items-center relative z-30">
           <Link href="/" className="flex justify-center items-center">
             <div className="font-title flex flex-col justify-center text-[#2F3037] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-5 font-sans">
-              Reef
+              axiomstation_
             </div>
           </Link>
         </div>
@@ -89,8 +89,8 @@ export default function AuthPage() {
             </h1>
             <p className="text-[#37322F] text-sm font-medium leading-5 font-sans opacity-70">
               {isSignUp
-                ? "Start your journey with Reef"
-                : "Sign in to continue to Reef"}
+                ? "Start your journey with Axiom Station"
+                : "Sign in to continue to Axiom Station"}
             </p>
           </div>
 

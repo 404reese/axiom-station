@@ -18,14 +18,14 @@ export default function CTASection() {
               <div className="h-48 w-auto dark:hidden">
                 <DiffusionImage
                   src="/stamp.webp"
-                  alt="Made by Reef"
+                  alt="Made by Axiom Station"
                   className="h-48 w-auto"
                 />
               </div>
               <div className="h-48 w-auto hidden dark:block">
                 <DiffusionImage
                   src="/stampDark.png"
-                  alt="Made by Reef"
+                  alt="Made by Axiom Station"
                   className="h-48 w-auto"
                 />
               </div>

@@ -219,34 +219,60 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signInWithGoogle = async () => {
-    const result = await signInWithPopup(auth, googleProvider);
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
 
-    if (result.user) {
-      const userDocRef = doc(firestore, "users", result.user.uid);
-      const userDoc = await getDoc(userDocRef);
+      if (result.user) {
+        const userDocRef = doc(firestore, "users", result.user.uid);
+        
+        // Add retry logic with timeout for offline scenarios
+        let retries = 3;
+        let userDoc;
+        
+        while (retries > 0) {
+          try {
+            userDoc = await getDoc(userDocRef);
+            break;
+          } catch (error: any) {
+            retries--;
+            if (error.code === 'unavailable' && retries > 0) {
+              // Wait briefly before retrying
+              await new Promise(resolve => setTimeout(resolve, 1000));
+            } else {
+              throw error;
+            }
+          }
+        }
 
-      if (!userDoc.exists()) {
-        const displayName = result.user.displayName || "";
-        const nameParts = displayName.split(" ");
-        const firstName = nameParts[0] || "";
-        const lastName = nameParts.slice(1).join(" ") || "";
+        if (userDoc && !userDoc.exists()) {
+          const displayName = result.user.displayName || "";
+          const nameParts = displayName.split(" ");
+          const firstName = nameParts[0] || "";
+          const lastName = nameParts.slice(1).join(" ") || "";
 
-        await setDoc(userDocRef, {
-          firstName,
-          lastName,
-          email: result.user.email,
-          lastLoggedIn: serverTimestamp(),
-          lastLoggedInIp: await getUserIP(),
-          termsAccepted: false,
-          marketingAccepted: false,
-          createdAt: serverTimestamp(),
-        });
-      } else {
-        await updateDoc(userDocRef, {
-          lastLoggedIn: serverTimestamp(),
-          lastLoggedInIp: await getUserIP(),
-        });
+          await setDoc(userDocRef, {
+            firstName,
+            lastName,
+            email: result.user.email,
+            lastLoggedIn: serverTimestamp(),
+            lastLoggedInIp: await getUserIP(),
+            termsAccepted: false,
+            marketingAccepted: false,
+            createdAt: serverTimestamp(),
+          });
+        } else if (userDoc) {
+          await updateDoc(userDocRef, {
+            lastLoggedIn: serverTimestamp(),
+            lastLoggedInIp: await getUserIP(),
+          });
+        }
       }
+    } catch (error: any) {
+      console.error("Google sign-in error:", error);
+      if (error.code === 'unavailable') {
+        throw new Error('Unable to connect to the database. Please check your internet connection and try again.');
+      }
+      throw error;
     }
   };
 
