@@ -17,16 +17,16 @@ export function Navigation() {
             className="flex justify-start items-center gap-2 hover:opacity-80 transition-opacity"
           >
             <img
-    src="/logo3-black.png"
-    alt="axiom station"
-    className="w-5 h-5 sm:w-6 sm:h-6 block dark:hidden"
-  />
+              src="/logo3-black.png"
+              alt="axiom station"
+              className="w-5 h-5 sm:w-6 sm:h-6 block dark:hidden"
+            />
 
-  <img
-    src="/logo3-white.png"
-    alt="axiom station"
-    className="w-5 h-5 sm:w-6 sm:h-6 hidden dark:block"
-  />
+            <img
+              src="/logo3-white.png"
+              alt="axiom station"
+              className="w-5 h-5 sm:w-6 sm:h-6 hidden dark:block"
+            />
             <div className="font-title flex flex-col justify-center text-gray-900 dark:text-white text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-5 font-sans">
               axiomstation_
             </div>

@@ -1,11 +1,18 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif, Orbitron } from "next/font/google";
+import { Inter, Instrument_Serif, Orbitron, Exo_2 } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AuthProvider } from "../contexts/AuthContext";
 import { ThemeProvider } from "../providers/theme-provider";
 import { Toaster } from "sonner";
+
+const exo2 = Exo_2({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  preload: true,
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -75,7 +82,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable} ${orbitron.variable} ${ppMondwest.variable} antialiased`}
+      className={`${exo2.variable} ${inter.variable} ${instrumentSerif.variable} ${orbitron.variable} ${ppMondwest.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>

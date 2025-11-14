@@ -18,9 +18,10 @@ export default function SocialProofSection() {
     <div className="w-full flex flex-col justify-center items-center">
       <div className="self-stretch px-4 sm:px-6 md:px-24 py-8 sm:py-12 md:py-16 flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] px-4 sm:px-6 py-4 sm:py-5 overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4">
-          <div className="w-full max-w-[472.55px] text-center flex justify-center flex-col text-gray-900 dark:text-white text-xl md:text-2xl font-semibold leading-7 md:leading-8 font-title tracking-tight">
-            Connect Across The Galaxy
-          </div>
+          <div className="w-full max-w-[472.55px] text-center flex justify-center flex-col text-gray-900 dark:text-white text-xl md:text-2xl lg:text-4xl font-semibold leading-7 md:leading-8 font-title tracking-tight">
+  Connect Across The Galaxy
+</div>
+
           <div className="self-stretch text-center text-gray-600 dark:text-gray-400 text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
             Integrate with your favorite tools and explore infinite possibilities
           </div>

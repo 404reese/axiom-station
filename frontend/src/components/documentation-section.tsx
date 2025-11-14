@@ -63,7 +63,7 @@ export default function DocumentationSection() {
                 <div className="self-stretch flex justify-center flex-col text-gray-900 dark:text-white text-xl md:text-2xl font-semibold leading-7 md:leading-8 font-title">
                   Mission Control Center
                 </div>
-                <div className="self-stretch text-gray-600 dark:text-gray-400 text-base md:text-lg font-normal leading-6 md:leading-7 whitespace-pre-line">
+                <div className="self-stretch text-gray-600 dark:text-gray-400 text-base md:text-lg font-normal font-sans leading-6 md:leading-7 whitespace-pre-line">
                   Create and connect fully functional agents in minutes.
                 </div>
               </div>
