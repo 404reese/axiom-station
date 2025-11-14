@@ -6,7 +6,7 @@ import {
   InvalidToolInputError,
   convertToModelMessages,
 } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 import { NextRequest } from "next/server";
 import { z } from "zod";
 import { getSystemPrompt } from "../../../lib/system-prompt";
@@ -97,8 +97,8 @@ export async function POST(req: NextRequest) {
       return new Response("User ID is required", { status: 400 });
     }
 
-    if (!process.env.OPENAI_API_KEY) {
-      return new Response("OpenAI API key not configured", { status: 500 });
+    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+      return new Response("Gemini API key not configured", { status: 500 });
     }
 
     // Convert UI messages to model messages for AI SDK 5
@@ -116,11 +116,11 @@ export async function POST(req: NextRequest) {
 
     // Stream the chat completion with multi-step tool calling
     console.log(
-      "API Route - Starting OpenAI stream with multi-step tool calls...",
+      "API Route - Starting Gemini stream with multi-step tool calls...",
     );
 
     const result = await streamText({
-      model: openai("gpt-4.1"),
+      model: google("gemini-2.0-flash-exp"),
       messages: modelMessages,
       maxOutputTokens: 4000,
       system: getSystemPrompt(),
@@ -155,7 +155,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    console.log("API Route - OpenAI stream created successfully");
+    console.log("API Route - Gemini stream created successfully");
 
     return result.toUIMessageStreamResponse({
       onError: (error) => {
