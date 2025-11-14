@@ -104,7 +104,7 @@ async def get_workflow_result(trace_id: str):
 @app.get("/health")
 async def health_check():
     """Health check endpoint - no authentication required"""
-    return JSONResponse(content={"status": "healthy", "service": "coral-factory-api"})
+    return JSONResponse(content={"status": "healthy", "service": "axiom-station-api"})
 
 @app.get("/auth/status")
 async def auth_status(token: str = Depends(verify_token)):

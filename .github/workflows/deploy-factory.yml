@@ -30,16 +30,16 @@ jobs:
       - name: Build Docker Image
         working-directory: ./coral_factory
         run: |
-          docker build --platform linux/amd64 -t gcr.io/reefs-c1adb/coral-factory .
+          docker build --platform linux/amd64 -t gcr.io/reefs-c1adb/axiom-station .
 
       - name: Push Docker Image
         run: |
-          docker push gcr.io/reefs-c1adb/coral-factory
+          docker push gcr.io/reefs-c1adb/axiom-station
 
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy coral-factory \
-            --image gcr.io/reefs-c1adb/coral-factory \
+          gcloud run deploy axiom-station \
+            --image gcr.io/reefs-c1adb/axiom-station \
             --platform managed \
             --region europe-west1 \
             --allow-unauthenticated \
